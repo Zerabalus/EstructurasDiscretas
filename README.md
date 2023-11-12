@@ -1,1 +1,1 @@
-# EstructurasDiscretas
+# Estructuras Discretas
