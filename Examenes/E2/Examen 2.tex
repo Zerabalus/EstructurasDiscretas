@@ -1,0 +1,179 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage{geometry}
+%\addtolength{\hoffset}{-0.2cm}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+%Multicolumns
+\usepackage{multicol}
+\usepackage{fdsymbol}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{booktabs}
+%\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{marginnote}
+\usepackage{enumitem}
+\reversemarginpar
+\pagenumbering{gobble}
+
+
+
+\newcolumntype{A}{ >{$} r <{$} @{} >{${}} l <{$} } 
+
+
+\title{Estructuras Discretas\\Examen 2}
+
+
+\begin{document}
+
+\maketitle
+
+\vspace{-15pt}
+\noindent \textbf{Resuelve de manera limpia y ordenada los siguientes ejercicios. 
+Indica claramente el n\'umero de pregunta que se esta resolviendo.}
+
+
+\begin{enumerate}	
+		
+	\item \marginnote{{\em 2 puntos}}
+		Decide, utilizando interpretaciones o \textit{tableaux}, si el siguiente conjunto es satisfacible. En caso de serlo, da un modelo para el conjunto. 
+		$$\Gamma = \{ \neg (p \to q), \neg(q \land r), r \leftrightarrow \neg p, \neg q \to ( p \land \neg r) \}$$
+1. \\
+   - \(p \rightarrow q\) es equivalente a \(\neg p \vee q\)\\
+   - \(r \leftrightarrow \neg p\) es equivalente a \((r \wedge \neg p) \vee (\neg r \wedge p)\)\\
+   - \(\neg q \rightarrow (p \wedge \neg r)\) es equivalente a \(q \vee (p \wedge \neg r)\)\\
+   Así:\\
+   \[
+   \Gamma=\{\neg(\neg p \vee q), \neg(q \wedge r), (r \wedge \neg p) \vee (\neg r \wedge p), q \vee (p \wedge \neg r)\}
+   \] \\
+2.\\
+   - \(\neg\neg A\), la reescribimos \(A\).\\
+   - \(A \wedge B\), la reescribimos \(A\) y \(B\)\\
+   - \(A \vee B\), la reescribimos \(A\) y \(B\) \\
+   - \(\neg(A \wedge B)\), la reescribimos \(\neg A\) y \(\neg B\) \\
+   - \(\neg(A \vee B)\), la reescribimos \(\neg A\) y \(\neg B\)\\
+3.\\
+   \[
+   \begin{array}{cccc}
+   & & p \wedge \neg q & \\
+   & \swarrow & & \searrow \\
+   p & & \neg q & \\
+   & & \neg q \vee \neg r & \\
+   & \swarrow & & \searrow \\
+   \neg q & & \neg r & \\
+   & & r \wedge \neg p \vee \neg r \wedge p & \\
+   & \swarrow & & \searrow \\
+   r \wedge \neg p & & \neg r \wedge p & \\
+   & \swarrow & & \searrow \\
+   r & \neg p & \neg r & p \\
+   \end{array}
+   \]
+
+3. La rama izq. contiene \(p\) y \(\neg p\), (!)\\
+   - La derecha \(r\) y \(\neg r\), (!)\\
+
+   $\therefore$ no es satisfacible
+
+  
+	\item \marginnote{{\em 2 puntos}}
+		Usando interpretaciones o \textit{tableaux}, determina si el siguiente argumento es correcto.   En caso de no serlo exhibe una interpretaci\'on que haga verdaderas a las premisas y falsa a la conclusi\'on.
+		$$(r \lor u) \to s, r, s \to t  / \therefore  \  t \lor u.$$\\
+\begin{multicols}{2}
+Premisas:\\
+1. $(r \lor u) \to s$\\
+2. $r$\\
+3. $s \to t$\\
+
+Conclusion:\\
+$t \lor u$\\
+\end{multicols}
+
+\begin{multicols}{2}
+1. \\
+   - $(r \lor u) \to s$\\
+   - $r$\\
+   - $s \to t$\\
+   - $\neg (t \lor u)$\\
+   
+2. \\
+   - $A \to B$, agregamos $\neg A$ y $B$\\
+   - $\neg (A \lor B)$, agregamos $\neg A$ yand $\neg B$\\
+   - $\neg (A \land B)$, agregamos $\neg A$ o $\neg B$\\
+\end{multicols}
+\begin{multicols}{2}
+3. Tenemos\\
+   - $(r \lor u) \to s$, agregamos\\
+   $\neg (r \lor u)$ y $s$\\
+   - $r$, agregamos $r$\\
+   - $s \to t$, agregamos $\neg s$ y $t$\\
+   - $\neg (t \lor u)$, agregamos $\neg t$ y $\neg u$\\
+\newline
+\newline
+\newline
+\newline
+4. Así\\
+   - $\neg (r \lor u)$\\
+   - $s$\\
+   - $r$\\
+   - $\neg s$\\
+   - $t$\\
+   - $\neg t$\\
+   - $\neg u$\\
+\end{multicols}
+5. Tiene $s$, $\neg s$, $t$ y $\neg t$. Hay una contradicción (!)\\
+$\therefore$ el argumento es válido\\
+		
+	\item \marginnote{{\em 4 puntos}}
+		Traduce el siguiente argumento a lenguaje formal y demuestra que
+		es correcto usando derivaciones. Justifica la obtención de la expresión mostrada en cada paso: indica si es una premisa, una suposición, resultado de aplicar una regla de inferencia en una o más líneas anteriores (por ejemplo, MP 1, 2 para indicar obtención por medio de Modus Ponens con las líneas 1 y 2), o razomamiento ecuacional (RE).
+		
+		\vspace{5pt}
+		
+		\textit{Si Chubaka no es perro, entonces no es cierto que sea alado o que sea borogove. Si Chubaka es quelite, entonces es alado. Sabemos que Chubaka no es perro. Luego entonces, Chubaka no es quelite.}
+    Let's denote the following:
+\begin{multicols}{2}
+    P: Chubaka es perro. \\
+    Q: Chubaka es alado.\\
+    R: Chubaka es borogove.\\
+    S: Chubaka es quelite.\\
+
+    Así\\
+    1. $\neg$P $\rightarrow$ $(\neg Q \land \neg R)$ (Premisa)\\
+    2. S $\rightarrow$ Q (Premisa)\\
+    3. $\neg$ P (Premisa)\\
+    4.$\therefore$ ¬S
+\end{multicols}
+
+Usamos Modus Ponens (MP) en 1 y 3:\\
+4. $\neg Q \land \neg R$ (MP 1, 3)\\
+Simplificación\\
+5. $\neg$Q (Simplificacion 4)\\
+Modus Tollens en 2 y 5:\\
+6. $\neg$S (MT 2, 5)\\
+$\therefore$ Chubaka no es quelite\\
+
+	\vspace{5pt}
+		
+	\item \marginnote{{\em 2 puntos}}
+		Construye la siguiente derivación. Justifica el proceso como en la pregunta anterior.\\
+		$$\vdash \, (\neg p \, \land q) \lor (p \land \neg \, q) \to (\neg \, p \land (\neg \, p \land q)) \lor (p \land (p \land \neg \, q))$$\\
+%%%%%%%%%%%%%%
+1. $\neg p \land q$ (Suposición)\\
+2. $p \land \neg q$ (Suposición)\\
+3. $\neg p \land (\neg p \land q)$ (De 1, Conjuncion)\\
+4. $p \land (p \land \neg q)$ (De 2, Conjuncion)\\
+5. $(\neg p \land q) \lor (p \land \neg q)$ (De 1 y 2, Disyuncion)\\
+6. $(\neg p \land (\neg p \land q)) \lor (p \land (p \land \neg q))$ (De 3 y 4, Disyuncion)\\
+7. $(\neg p \land q) \lor (p \land \neg q) \to (\neg p \land (\neg p \land q)) \lor (p \land (p \land \neg q))$ (De 5 y 6, Condicional)\\
+
+$\therefore$ el argumento es correcto
+
+		
+\end{enumerate}
+
+
+\end{document}
