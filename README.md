@@ -6,7 +6,7 @@
 
 ### Acerca de mí
 
-Soy un estudiante de primer semestre de Ciencias de la Computación apasionado por aprender y crecer en el mundo de la programación y la informática, me interesa mucho la inteligencia artificial.
+Soy un estudiante de primer semestre de Ciencias de la Computación :)
 
 ### Contenido 
 
