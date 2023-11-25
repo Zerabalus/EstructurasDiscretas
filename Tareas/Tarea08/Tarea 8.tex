@@ -1,0 +1,195 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+%Multicolumns
+\usepackage{multicol}
+\usepackage{fdsymbol}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{marginnote}
+\usepackage{lineno}
+\pagenumbering{gobble}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+}
+
+
+\newcolumntype{A}{ >{$} r <{$} @{} >{${}} l <{$} } 
+
+
+\title{Estructuras Discretas}
+
+\begin{document}
+
+\maketitle
+
+\vspace{-15pt}
+Resuelva de manera limpia y ordenada los siguientes ejercicios. 
+Indique claramente el n\'umero de pregunta que se esta resolviendo.
+
+
+\begin{enumerate}
+
+	\item \marginnote{\em 5 puntos} Traduzca los siguientes enunciados a l\'ogica de predicados. 
+Indique de manera clara el universo de discurso, los predicados que utilizar\'a, y a qu\'e inciso corresponde cada f\'ormula.
+   \begin{enumerate}
+   	\item Hay un mango que es m\'as dulce que todos los limones y que todas las peras.
+	\item No es cierto que todo lim\'on sea m\'as dulce que algún mango.
+    \item Todas las manzanas son frutas.
+    \item Algunas frutas son \'acidas.     
+   \item Hay alguna pera que no es m\'as dulce que alguna manzana.
+    \item Todas las fresas son ácidas y son más dulces que los limones.
+   \end{enumerate}
+
+
+ 1. Universo ($\mathbb U$) = Frutas\\
+Predicados\\
+- M(x): x es mango\\
+- L(x): x es lim\'on\\
+- P(x): x es pera\\
+- A(x): x es manzana\\
+- S(x): x es fresa\\
+- F(x): x es fruta\\
+- D(x, y): x es mas dulce que y\\
+- Ac(x): x es \'acido\\
+
+2) Traducción a lógica de predicados\\
+
+a) "Hay un mango que es m\'as dulce que todos los limones y que todas
+las peras."\\
+$\exists x (M(x) \land \forall y (L(y) \rightarrow D(x, y)) \land \forall z (P(z) \rightarrow D(x, z)))$\\
+
+b) "No es cierto que todo lim\'on sea m\'as dulce que alg\'un mango."\\
+$\neg \forall x (L(x) \rightarrow \exists y (M(y) \land D(x, y)))$\\
+
+c) "Todas las manzanas son frutas."\\
+$\forall x (A(x) \rightarrow F(x))$\\
+
+d) "$A$lgunas frutas son  \'acidas."\\
+$\exists x (F(x) \land Ac(x))$\\
+
+e) "Hay alguna pera que no es m\'as dulce que alguna manzana."\\
+$\exists x (P(x) \land \exists y (A(y) \land \neg D(x, y)))$\\
+
+f) "Todas las fresas son \'acidas y son m\'as dulces que los limones."\\
+$\forall x (S(x) \rightarrow (Ac(x) \land \forall y (L(y) \rightarrow D(x, y))))$\\
+
+   
+   \item \marginnote{\em 5 puntos} Sean $f^{(1)}$ y $g^{(2)}$ s\'imbolos de funci\'on, y sean $P^{(1)}$, $Q^{(2)}$ y $R^{(3)}$ s\'imbolos de predicado.
+	Para cada uno de los siguientes incisos, determine si se trata de un t\'ermino, una f\'ormula at\'omica, una f\'ormula no at\'omica (compleja), una f\'ormula cuantificada (f\'ormula con cuantificadores, pero con presencias de variables libres), o un enunciado (f\'ormula con cuantificadores, sin presencias de variable libres). 
+	En caso de ser de una f\'ormula cuantificada con variables libres, indique cu\'ales son las presencias de variables libres.
+
+  \begin{enumerate}
+  	\item $\neg\forall x\forall y(P(f(x)) \land Q(x,j))$\\
+   
+La expresión dada es \( \neg \forall x \forall y(P(f(x)) \wedge Q(x, j)) \).
+
+1. Contiene el símbolo \( \neg \) la expresión podría ser no atómica.\\
+
+2. Contiene a \( \forall x \) y \( \forall y \), podría ser una fórmula cuantificada.\\
+
+3. La expresión contiene los símbolos de función \( f^{(1)} \) y los símbolos de predicado \( P^{(1)} \) y \( Q^{(2)} \). La función \( f \) se aplica a la variable \( x \), y los predicados \( P \) y \( Q \) se aplican a \( f(x) \) y \( (x, j ) \) . Esto indica que la expresión no es un término, porque los términos no contienen símbolos de predicado.\\
+
+4. La expresión no contiene variables libres. Todas las variables que aparecen en la expresión están ligadas por los cuantificadores universales \( \forall x \) y \( \forall y \). Por tanto, la expresión no es una fórmula cuantificada con variables libres.\\
+
+5. La expresión es una fórmula compleja con cuantificadores y sin variables libres.\\
+
+$\therefore$ es un enunciado.
+
+\newpage
+
+  	\item $Q(g(x,f(y)), b)$\\
+
+1. Un término es una variable, una constante o una función de términos. En nuestra expresión, \( x \), \( y \) y \( b \) son términos. \( f(y) \) y \( g(x, f(y)) \) también son términos porque son funciones de términos.\\
+
+2. Una fórmula atómica es un predicado de términos. En nuestra expresión, \( Q(g(x, f (y)), b) \) es una fórmula atómica porque \( Q \) es un predicado y \( g(x, f (y)) \) y \( b \) son términos.\\
+
+3. La expresión no implica ningún conectivo lógico ni cuantificador, por lo que no es una fórmula no atómica.\\
+
+4. No implica ningún cuantificador, por lo que no es una fórmula cuantificada.\\
+
+5. \( x \) y \( y \) son variables libres porque no están limitadas por ningún cuantificador. Por tanto, nuestra expresión no es una declaración.\\
+
+Entonces, la expresión dada \( Q(g(x, f (y)), b) \) es una fórmula atómica con variables libres \( x \) y \( y \).\\
+
+$\therefore$ es una fórmula atómica con variables libres \( x \) y \( y \).\\
+\newline
+
+  	\item $P(a) \lor \neg R(x, y, z)$
+
+1. Es una disyunción (\(\lor\)) de dos partes: \(P(a)\) y \(\neg R(x, y, z)\). Aquí, \(P\) y \(R\) son símbolos de predicados, \(a\) es una constante y \(x, y, z\) son variables.\\
+
+2. \(P(a)\) es una fórmula atómica porque es un predicado aplicado a un término y no contiene ningún conectivo lógico ni cuantificador.\\
+
+3. La parte \(\neg R(x, y, z)\) también es una fórmula atómica porque es un predicado aplicado a términos y no contiene ningún conectivo ni cuantificador lógico.\\
+
+4. La expresión completa \(P(a) \lor \neg R(x, y, z)\) es una fórmula no atómica porque es una disyunción de dos atómicas.\\
+
+5. La expresión no contiene ningún cuantificador.\\
+
+6. La expresión no contiene ningún cuantificador, pero si tiene variables libres \(x, y, z\).\\
+
+$\therefore$ La expresión lógica dada \(P(a) \lor \neg R(x, y, z)\) es una fórmula no atómica con variables libres \(x, y, z\) .\\
+  
+  \item $\exists x \exists z(P(f(x)) \wedge Q(x,g(x, y)) \to \forall y R(x,y,z)) $
+
+1. Comienza con dos cuantificadores existenciales \(\exists x\) y \(\exists z\), las variables \(x\) y \(z\) están vinculadas dentro del alcance de estos cuantificadores.\\
+
+2. La expresión \(P(f(x))\) es una fórmula atómica, \(f(x)\) es un término.\\
+
+3. \(Q(x,g(x, y))\) también es una fórmula atómica, \(x\) y \(g(x, y)\) son términos. Sin embargo, la variable \(y\) no está limitada por ningún cuantificador, por lo que es una variable libre en esta expresión.\\
+
+4. La expresión \(P(f(x)) \wedge Q(x,g(x, y))\) es una fórmula no atómica, porque es una conjunción de dos fórmulas atómicas.\\
+
+5. La expresión \(\forall y R(x,y,z)\) es una fórmula universalmente cuantificada, \(R(x,y,z)\) es una fórmula atómica y la variable \(y\) está limitado por el cuantificador universal \(\forall y\).\\
+
+6. \(\exists x \exists z(P(f(x)) \wedge Q(x,g(x, y)) \to \forall y R(x,y,z))\) es una fórmula compleja (no atómica), porque es una implicación entre una fórmula compleja y una fórmula universalmente cuantificada. También es una fórmula cuantificada, porque contiene cuantificadores tanto existenciales como universales. Sin embargo, no es una oración porque contiene una variable libre \(y\) en la expresión \(Q(x,g(x, y))\).\\
+
+$\therefore$ La expresión dada es una fórmula cuantificada con una variable libre \(y\).
+\newline
+   
+  	\item $\neg Q(a, f(b)) \to \neg P(g(a, b))$
+
+1. Tenemos dos símbolos de función \(f^{(1)}\) y \(g^{(2)}\), y dos símbolos de predicado \(P^{(1)}\) y \(Q^{ (2)}\). Las variables son \(a\) y \(b\).
+
+2. Los símbolos de función se aplican a las variables para formar términos de función. \(f(b)\) y \(g(a, b)\) son términos de función.
+
+3. Los símbolos de predicados se aplican a los términos de funciones y variables para formar fórmulas atómicas. \(Q(a, f(b))\) y \(P(g(a, b))\).
+
+4. Las fórmulas atómicas se niegan \(\neg Q(a, f(b))\) y \(\neg P(g(a, b))\).
+
+5. Estas fórmulas atómicas negadas se conectan usando el operador de implicación \(\to\) para formar una fórmula compleja. Entonces, \(\neg Q(a, f(b)) \to \neg P(g(a, b))\) es una fórmula compleja.
+
+6. No hay cuantificadores en la fórmula, por lo que no es una fórmula cuantificada.
+
+7. Todas las variables de la fórmula son libres, ya que no están sujetas a ningún cuantificador. Las variables libres son \(a\) y \(b\).
+
+$\therefore$ la expresión dada es una fórmula compleja con variables libres \(a\) y \(b\).
+\newpage 
+
+ 	 \item $\forall x \forall y \forall z(P(x,y) \wedge R(x,y,z)) \lor \exists z(Q(x,z))$
+
+1. La expresión contiene a \(\forall x\), \(\forall y\), y \(\forall z\) que son cuantificadores universales, y \(\exists z\) que es un cuantificador existencial .\\
+
+2. La expresión también contiene \(P(x,y)\) y \(R(x,y,z)\) que están bajo el alcance de los cuantificadores universales, y \(Q(x,z) )\) que está bajo el alcance del cuantificador existencial.\\
+
+3. La expresión es una disyunción $\lor$ de dos partes: $\forall x \forall y \forall z(P(x,y) \wedge R(x,y,z))$ y \(\exists z(Q(x,z))\).\\
+
+4. La variable \(x\) en \(Q(x,z)\) no está bajo el alcance de ningún cuantificador, asi que es una variable libre.\\
+
+$\therefore$ la expresión dada es una fórmula cuantificada con variables libres, y la variable libre es x.\\
+   
+\end{enumerate}
+		
+\end{enumerate}
+Link de Overleaf de esta tarea: \url{https://es.overleaf.com/read/xmhwjtqvzrqn#dd3118}
+
+
+%\linenumbers
+
+\end{document}
