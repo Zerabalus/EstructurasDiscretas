@@ -2,7 +2,7 @@
 
 ## Materia: Estructuras Discretas
 
-👋 Hola, soy @Epharedam, y este es mi repositorio dedicado a ED.
+👋 Hola, me llamo Ephi, y este es mi repositorio dedicado a Estructuras Discretas con el profesor Jesús Nestaly Marin Nevárez .
 
 ### Acerca de mí
 
@@ -10,7 +10,7 @@ Soy un estudiante de primer semestre de Ciencias de la Computación :)
 
 ### Contenido 
 
-En este repositorio, encontrarás mis tareas y proyectos de clase.
+En este repositorio, encontrarás mis tareas y proyectos de clase asi como más recursos.
 
 ### Objetivos
 
